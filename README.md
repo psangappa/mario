@@ -176,4 +176,13 @@ Task: Create a web application to play the Mario game created in task one.
 
 To make the web application interactive I have used Dash by Plotly. 
 
-![Output](/game_output.png)
+![Shortest](/app/assets/game_output_shortest.png)
+
+
+![PossiblePath](/app/assets/game_output_possible_path.png)
+
+
+![LostGame](/app/assets/game_output_lost_game.png)
+
+
+![InvalidInputs](/app/assets/game_output_invalid_input.png)
