@@ -2,7 +2,7 @@
 
 Mario and the princess are trapped in a square grid (N*N), Mario needs to reach the princess with minimum number of steps (shortest paths), while avoiding any obstacles. Mario can move UP, DOWN, LEFT and RIGHT and can’t go outside of the grid.
 
-***First task:***
+**First task:**
 
 1. Validate the given inputs 
     * max 1 mario and 1 princess.
@@ -36,7 +36,7 @@ Mario and the princess are trapped in a square grid (N*N), Mario needs to reach 
 
     Simply run input.py from save_princess package and provide inputs.
     
-***Second task***
+**Second task**
 
 I'm exposing 3 Rest API endpoints. 
 
