@@ -169,3 +169,11 @@ The clients of these API's can use them in the following manner
             "grid": "--m,xxx,--p",
             "timestamp": "2019-09-19T13:26:09.328501"
         }
+
+**Third Task**
+
+Task: Create a web application to play the Mario game created in task one.
+
+To make the web application interactive I have used Dash by Plotly. 
+
+![Output](/game_output.png)
