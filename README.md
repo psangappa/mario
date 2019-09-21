@@ -34,7 +34,7 @@ Mario and the princess are trapped in a square grid (N*N), Mario needs to reach 
         
 * How to use:
 
-    Simply run input.py from save_princess package and provide inputs.
+    Simply run input.py from app/save_princess package and provide inputs.
     
 **Second task**
 
