@@ -176,4 +176,20 @@ Task: Create a web application to play the Mario game created in task one.
 
 To make the web application interactive I have used Dash by Plotly. 
 
-![Output](/game_output.png)
+The user can just goto /dashboard/ to play the game. Let's Start then
+
+***If the User enters a valid input and there are no obstacles on the shortest path. The screen will look something like this***
+
+![Shortest](/app/assets/game_output_shortest.png)
+
+***If the User enters a valid input but there are obstacles on the shortest path. Then the game will find the possible path. The screen will look something like this***
+
+![PossiblePath](/app/assets/game_output_possible_path.png)
+
+***If the User enters a valid input but there are obstacles everywhere. The screen will look something like this.***
+ 
+![LostGame](/app/assets/game_output_lost_game.png)
+
+***If the user enters invalid input.***
+
+![InvalidInputs](/app/assets/game_output_invalid_input.png)
