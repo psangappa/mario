@@ -174,7 +174,7 @@ The clients of these API's can use them in the following manner
 
 Task: Create a web application to play the Mario game created in task one.
 
-To make the web application interactive I have used Dash by Plotly. 
+To make the web application interactive I have used Dash by Plotly and added error messages if the inputs are invalid. 
 
 The user can just goto /dashboard/ to play the game. Let's Start then
 
@@ -190,6 +190,10 @@ The user can just goto /dashboard/ to play the game. Let's Start then
  
 ![LostGame](/app/assets/game_output_lost_game.png)
 
-***If the user enters invalid input.***
+***If the user enters invalid grid***
 
-![InvalidInputs](/app/assets/game_output_invalid_input.png)
+![InvalidInputs](/app/assets/game_output_invalid_grid.png)
+
+***If number of mario is more than 1***
+
+![InvalidInputs](/app/assets/game_output_only_one_mario.png)
