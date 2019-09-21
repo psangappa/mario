@@ -38,6 +38,14 @@ Mario and the princess are trapped in a square grid (N*N), Mario needs to reach 
     
 **Second task**
 
+how to run: 
+
+* goto a directory where main.py is present.
+* run set FLASK_APP=main.py if you are on windows other export FLASK_APP=main.py
+* flask db upgrade
+* Finally, start the flask application by running - flask run
+	
+
 I'm exposing 3 Rest API endpoints. 
 
 * First is to find the shortest path. This uses the algorithm writer in task1. 
