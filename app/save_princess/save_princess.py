@@ -14,13 +14,12 @@ from itertools import permutations
 
 from app.save_princess.validator import Validator
 from app.save_princess.possible_path import PossiblePathFinder
-
-moves_dict = {'DOWN': 1, 'UP': -1, 'RIGHT': 1, 'LEFT': -1}
+from app.save_princess.const import UP, DOWN, RIGHT, LEFT, MOVES_DICT
 
 
 def save_princess(n, grid, game_mode=False):
     """
-    Things to note: If you're moving DOWN or UP the you add/subtract row index. Otherwise add/subtract column index
+    Things to note: If you're moving DOWN or UP then you add/subtract row index. Otherwise add/subtract column index
     :param n: grid size
     :param grid: a string containing rows separated by commas - '--m,-x-,-p-'
     :param game_mode: True if the request is coming from the dashboard
@@ -31,16 +30,16 @@ def save_princess(n, grid, game_mode=False):
     """
     validated = Validator(n, grid)
     if not validated.validate():
-        return (True, [], "") if game_mode else (True, [])
+        return (True, [], validated) if game_mode else (True, [])
     for moves in form_shortest_paths(validated.mario_index, validated.princess_index):
         number_of_moves = len(moves)
         current_vertex = validated.mario_index.copy()
         count = 0
         for move in moves:
-            if 'DOWN' in move or 'UP' in move:
-                current_vertex[0] += moves_dict[move]
+            if DOWN in move or UP in move:
+                current_vertex[0] += MOVES_DICT[move]
             else:
-                current_vertex[1] += moves_dict[move]
+                current_vertex[1] += MOVES_DICT[move]
             if current_vertex in validated.obstacles:
                 # found obstacle so skip the remaining moves
                 continue
@@ -67,6 +66,6 @@ def form_shortest_paths(mario_index, princess_index):
     """
     difference_in_rows = princess_index[0] - mario_index[0]
     difference_in_cols = princess_index[1] - mario_index[1]
-    ups_downs = ['UP'] * abs(difference_in_rows) if difference_in_rows < 0 else ['DOWN'] * difference_in_rows
-    lefts_rights = ['LEFT'] * abs(difference_in_cols) if difference_in_cols < 0 else ['RIGHT'] * difference_in_cols
+    ups_downs = [UP] * abs(difference_in_rows) if difference_in_rows < 0 else [DOWN] * difference_in_rows
+    lefts_rights = [LEFT] * abs(difference_in_cols) if difference_in_cols < 0 else [RIGHT] * difference_in_cols
     return set(permutations(ups_downs + lefts_rights))

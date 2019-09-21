@@ -1,4 +1,5 @@
 """ If there is no shortest path exist, then find the possible path to the princes """
+from app.save_princess.const import PRINCESS, MARIO, OBSTACLE, UP, DOWN, RIGHT, LEFT
 
 
 class PossiblePathFinder:
@@ -21,27 +22,27 @@ class PossiblePathFinder:
         if self.possible_path:
             return
         visited[i][j] = 1
-        if grid[i][j] == 'p' or grid[i][j] != 'm':
+        if grid[i][j] == PRINCESS or grid[i][j] != MARIO:
             path.append(move)
-        if grid[i][j] == 'p':
+        if grid[i][j] == PRINCESS:
             self.possible_path = path.copy()
             return
 
         # Up
-        if i >= 1 and not visited[i - 1][j] and grid[i - 1][j] != 'x':
-            self.find_possible_path(i - 1, j, n, grid, visited, path, 'UP')
+        if i >= 1 and not visited[i - 1][j] and grid[i - 1][j] != OBSTACLE:
+            self.find_possible_path(i - 1, j, n, grid, visited, path, UP)
 
         # Down
-        if i < n - 1 and not visited[i + 1][j] and grid[i + 1][j] != 'x':
-            self.find_possible_path(i + 1, j, n, grid, visited, path, 'DOWN')
+        if i < n - 1 and not visited[i + 1][j] and grid[i + 1][j] != OBSTACLE:
+            self.find_possible_path(i + 1, j, n, grid, visited, path, DOWN)
 
         # Left
-        if j >= 1 and not visited[i][j - 1] and grid[i][j - 1] != 'x':
-            self.find_possible_path(i, j - 1, n, grid, visited, path, 'LEFT')
+        if j >= 1 and not visited[i][j - 1] and grid[i][j - 1] != OBSTACLE:
+            self.find_possible_path(i, j - 1, n, grid, visited, path, LEFT)
 
         # Right
-        if j < n - 1 and not visited[i][j + 1] and grid[i][j + 1] != 'x':
-            self.find_possible_path(i, j + 1, n, grid, visited, path, 'RIGHT')
+        if j < n - 1 and not visited[i][j + 1] and grid[i][j + 1] != OBSTACLE:
+            self.find_possible_path(i, j + 1, n, grid, visited, path, RIGHT)
 
         visited[i][j] = 0
         if path:

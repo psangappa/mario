@@ -4,8 +4,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 from app.save_princess.save_princess import save_princess
-
-moves_dict = {'DOWN': 1, 'UP': -1, 'RIGHT': 1, 'LEFT': -1}
+from app.save_princess.const import MOVES_DICT, UP, DOWN
 
 
 def register_callbacks(dash_app):
@@ -17,7 +16,7 @@ def register_callbacks(dash_app):
     def update_output(n_clicks, n_value, grid_value):
         error_flag, path, validated_data = save_princess(n_value, grid_value, game_mode=True)
         if error_flag:
-            return html.H2(children="The input entered is not valid. Please check your input and enter again")
+            return html.H2(children=f"{validated_data.message}. Please check your input and enter again")
         if not path:
             return html.H2(children="Mario has lost the game. Too many obstacles on his way.")
         x_points, y_points = form_points(validated_data, path)
@@ -80,10 +79,10 @@ def form_points(data, path):
     y_points.append(current_vertex[0])
     x_points.append(current_vertex[1])
     for move in path:
-        if 'DOWN' in move or 'UP' in move:
-            current_vertex[0] += moves_dict[move]
+        if DOWN in move or UP in move:
+            current_vertex[0] += MOVES_DICT[move]
         else:
-            current_vertex[1] += moves_dict[move]
+            current_vertex[1] += MOVES_DICT[move]
         y_points.append(current_vertex[0])
         x_points.append(current_vertex[1])
     return x_points, y_points

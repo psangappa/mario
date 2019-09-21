@@ -1,0 +1,9 @@
+ALLOWED_SYMBOLS = ['m', 'p', '-', 'x']
+MARIO = 'm'
+PRINCESS = 'p'
+OBSTACLE = 'x'
+DOWN = 'DOWN'
+UP = 'UP'
+LEFT = 'LEFT'
+RIGHT = 'RIGHT'
+MOVES_DICT = {'DOWN': 1, 'UP': -1, 'RIGHT': 1, 'LEFT': -1}
