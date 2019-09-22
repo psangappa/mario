@@ -48,6 +48,6 @@ def save_princess(n, grid, game_mode=False):
     visited = []
     for i in range(n):
         visited.append([0]*n)
-    path_finder = PossiblePathFinder()
-    path_finder.find_possible_path(validated.mario_index[0], validated.mario_index[1], n, validated.grid, visited, [])
+    path_finder = PossiblePathFinder(n, validated.grid)
+    path_finder.find_possible_path(validated.mario_index[0], validated.mario_index[1], visited, [])
     return (False, path_finder.possible_path, validated) if game_mode else (False, path_finder.possible_path)
