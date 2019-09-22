@@ -1,16 +1,16 @@
 **Mario on a mission**
 
-Mario and the princess are trapped in a square grid (N*N), Mario needs to reach the princess with minimum number of steps (shortest paths), while avoiding any obstacles. Mario can move UP, DOWN, LEFT and RIGHT and can’t go outside of the grid.
+Mario and the princess are trapped in a square grid (N*N), Mario needs to reach the princess with a minimum number of steps (shortest paths), while avoiding any obstacles. Mario can move UP, DOWN, LEFT and RIGHT and can’t go outside of the grid.
 
 **First task:**
 
 1. Validate the given inputs 
-    * max 1 mario and 1 princess.
-    * minimum 1 mario and 1 princess. 
-    * grid should form a square matrix.
-    * the given integer 'n' should be positive number greater than 1
+    * max 1 Mario and 1 princess.
+    * minimum 1 Mario and 1 princess. 
+    * Grid should form a square matrix.
+    * the given integer 'n' should be a positive number greater than 1
 2. Find the shortest path to reach princess avoiding all the obstacles.
-3. If you don't find a shortest path, then return any possible path if it exists.
+3. If you don't find the shortest path, then return any possible path if it exists.
 
 * Inputs:
 
@@ -28,9 +28,9 @@ Mario and the princess are trapped in a square grid (N*N), Mario needs to reach 
 	
 	For example,
 	
-	    (True, []) - if any of the constrains are violated. Here True is the
+	    (True, []) - if any of the constraints are violated. Here True is the
         (False, []) - if all paths to princess are blocked by obstacles
-        (False, ['DOWN', 'DOWN', 'LEFT']) - if we find a shortest path or a possible path to princess
+        (False, ['DOWN', 'DOWN', 'LEFT']) - if we find the shortest path or a possible path to the princess
         
 * How to use:
 
@@ -50,7 +50,7 @@ I'm exposing 3 Rest API endpoints.
 
 * First is to find the shortest path. This uses the algorithm writer in task1. 
 * Second is to see the request logs for a particular request.
-* Third is to see all request logs.
+* The third is to see all the request logs.
 
 Additionally, I'm using SQLLite DB to store the requests.
  
@@ -184,7 +184,7 @@ Task: Create a web application to play the Mario game created in task one.
 
 To make the web application interactive I have used Dash by Plotly and added error messages if the inputs are invalid. 
 
-The user can just goto /dashboard/ to play the game. Let's Start then
+The user can just go to /dashboard/ to play the game. Let's start then
 
 ***If the User enters a valid input and there are no obstacles on the shortest path. The screen will look something like this***
 
@@ -202,6 +202,6 @@ The user can just goto /dashboard/ to play the game. Let's Start then
 
 ![InvalidInputs](/app/assets/game_output_invalid_grid.png)
 
-***If number of mario is more than 1***
+***If the number of Mario is more than 1***
 
 ![InvalidInputs](/app/assets/game_output_only_one_mario.png)
