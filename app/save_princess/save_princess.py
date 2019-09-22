@@ -29,6 +29,8 @@ def save_princess(n, grid, game_mode=False):
     """
     validated = Validator(n, grid)
     if not validated.validate():
+        if validated.message == 'Obstacles Everywhere':
+            return (False, [], validated) if game_mode else (False, [])
         return (True, [], validated) if game_mode else (True, [])
     for moves in form_shortest_paths(validated.mario_index, validated.princess_index):
         number_of_moves = len(moves)
@@ -47,7 +49,7 @@ def save_princess(n, grid, game_mode=False):
             return (False, list(moves), validated) if game_mode else (False, list(moves))
     visited = []
     for i in range(n):
-        visited.append([0]*n)
+        visited.append([0] * n)
     path_finder = PossiblePathFinder(n, validated.grid)
     path_finder.find_possible_path(validated.mario_index[0], validated.mario_index[1], visited, [])
     return (False, path_finder.possible_path, validated) if game_mode else (False, path_finder.possible_path)
